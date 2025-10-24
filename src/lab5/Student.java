@@ -8,7 +8,7 @@ package lab5;
  *
  * @author msi
  */
-public class Student {
+public class Student{
     private int StudentID; 
     private String Name;
     private int Age;
@@ -72,5 +72,8 @@ public class Student {
     public void setGpa(double gpa) {
         this.gpa = gpa;
     }
-    
+    public String tostString()
+    {
+      return StudentID+","+Name+","+Age+","+Gender+","+Department+","+gpa;
+    }
 }
