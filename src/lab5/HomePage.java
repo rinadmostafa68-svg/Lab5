@@ -29,9 +29,10 @@ public class HomePage extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         AddStudent = new javax.swing.JButton();
-        Logout = new javax.swing.JButton();
+        Delete = new javax.swing.JButton();
         ViewStudent = new javax.swing.JButton();
-        UpdateOrDelete = new javax.swing.JButton();
+        SearchUpdate = new javax.swing.JButton();
+        Logout1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,12 +54,12 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        Logout.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        Logout.setText("Logout");
-        Logout.setActionCommand("");
-        Logout.addActionListener(new java.awt.event.ActionListener() {
+        Delete.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        Delete.setText("Delete");
+        Delete.setActionCommand("");
+        Delete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LogoutActionPerformed(evt);
+                DeleteActionPerformed(evt);
             }
         });
 
@@ -71,12 +72,21 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        UpdateOrDelete.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        UpdateOrDelete.setText("Update/Delete");
-        UpdateOrDelete.setActionCommand("");
-        UpdateOrDelete.addActionListener(new java.awt.event.ActionListener() {
+        SearchUpdate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        SearchUpdate.setText("Search/Update");
+        SearchUpdate.setActionCommand("");
+        SearchUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UpdateOrDeleteActionPerformed(evt);
+                SearchUpdateActionPerformed(evt);
+            }
+        });
+
+        Logout1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        Logout1.setText("Logout");
+        Logout1.setActionCommand("");
+        Logout1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Logout1ActionPerformed(evt);
             }
         });
 
@@ -95,14 +105,18 @@ public class HomePage extends javax.swing.JFrame {
                             .addComponent(jLabel1)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(UpdateOrDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(SearchUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(AddStudent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(ViewStudent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(Logout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ViewStudent)
+                                    .addComponent(Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(41, 41, 41)))))
                 .addContainerGap(23, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(121, 121, 121)
+                .addComponent(Logout1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,11 +129,13 @@ public class HomePage extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AddStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ViewStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(UpdateOrDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Logout, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(44, Short.MAX_VALUE))
+                    .addComponent(Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SearchUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(Logout1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -131,11 +147,11 @@ public class HomePage extends javax.swing.JFrame {
         x.setVisible(true);
     }//GEN-LAST:event_AddStudentActionPerformed
 
-    private void LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutActionPerformed
+    private void DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteActionPerformed
         // TODO add your handling code here:
         Login login =new Login();
         login.setVisible(true);
-    }//GEN-LAST:event_LogoutActionPerformed
+    }//GEN-LAST:event_DeleteActionPerformed
 
     private void ViewStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewStudentActionPerformed
         // TODO add your handling code here:
@@ -143,11 +159,15 @@ public class HomePage extends javax.swing.JFrame {
                 view.setVisible(true);
     }//GEN-LAST:event_ViewStudentActionPerformed
 
-    private void UpdateOrDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateOrDeleteActionPerformed
+    private void SearchUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchUpdateActionPerformed
         // TODO add your handling code here:
         UpdateOrDelete y = new UpdateOrDelete();
         y.setVisible(true);
-    }//GEN-LAST:event_UpdateOrDeleteActionPerformed
+    }//GEN-LAST:event_SearchUpdateActionPerformed
+
+    private void Logout1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Logout1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Logout1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -186,8 +206,9 @@ public class HomePage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddStudent;
-    private javax.swing.JButton Logout;
-    private javax.swing.JButton UpdateOrDelete;
+    private javax.swing.JButton Delete;
+    private javax.swing.JButton Logout1;
+    private javax.swing.JButton SearchUpdate;
     private javax.swing.JButton ViewStudent;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
