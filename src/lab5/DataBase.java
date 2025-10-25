@@ -26,7 +26,6 @@ public abstract class DataBase {
     {
       File f = new File(fileName);
         Scanner s = new Scanner(f);
-        int n = Integer.parseInt(s.nextLine());
         while (s.hasNextLine()) {
             String line = s.nextLine();
             String[] tokens = line.split(",");
@@ -57,5 +56,13 @@ public abstract class DataBase {
     {
         return record;
     }
-    
+    public boolean contains(int id)
+    {
+      for(int i=0;i<record.size();i++)
+      {
+          if(record.get(i).getStudentID()==id)
+              return true;
+      }
+      return false;
+    }
 }
