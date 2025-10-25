@@ -53,7 +53,9 @@ public abstract class DataBase {
             e.printStackTrace();
         }
     }
-    public abstract boolean contains();
-    public abstract ArrayList<Student> getAllstudents();
+    public ArrayList<Student> getAllstudents()
+    {
+        return record;
+    }
     
 }
