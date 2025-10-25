@@ -146,7 +146,7 @@ public class Login extends javax.swing.JFrame {
         this.setVisible(false);
     }
     else{
-        JOptionPane.showMessageDialog(this, "Error");
+        JOptionPane.showMessageDialog(this, "Incorrect username or passsword");
     }
     }//GEN-LAST:event_jButton1ActionPerformed
 
