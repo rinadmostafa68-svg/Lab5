@@ -14,10 +14,10 @@ public class Student {
     private String name;
     private int age;
     private String gender;
-    private string department;
+    private String department;
     private double gpa;
 
-    public Student(int id, String name, int age, String gender, string department, double gpa) {
+    public Student(int id, String name, int age, String gender, String department, double gpa) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -58,11 +58,11 @@ public class Student {
         this.gender = gender;
     }
 
-    public string getDepartment() {
+    public String getDepartment() {
         return department;
     }
 
-    public void setDepartment(string department) {
+    public void setDepartment(String department) {
         this.department = department;
     }
 
@@ -73,11 +73,12 @@ public class Student {
     public void setGpa(double gpa) {
         this.gpa = gpa;
     }
-}
-@Override
+    @Override
     public String toString() {
 return id + "," + name + "," + age + "," + gender + "," + department + "," + gpa;
     }
+}
+
 
     
     

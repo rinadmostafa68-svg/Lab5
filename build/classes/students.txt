@@ -1,0 +1,4 @@
+1234,Yomna,22,female,cce,3.45
+2345,shiko,21,male,cce,3.83
+3456,danny,male,cce,3.13
+4567,rowan,female,ele,2.3

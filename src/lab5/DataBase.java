@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
-package lab5.pkg2;
+package lab5;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -18,8 +18,9 @@ public abstract class DataBase {
     ArrayList<Student> record =new ArrayList<>();
     private String fileName;
 
-    public DataBase(String fileName) {
+    public DataBase(String fileName) throws FileNotFoundException {
         this.fileName = fileName;
+        ReadFromFile();
     }
     
     public void ReadFromFile() throws FileNotFoundException
@@ -60,7 +61,7 @@ public abstract class DataBase {
     {
       for(int i=0;i<record.size();i++)
       {
-          if(record.get(i).getStudentID()==id)
+          if(record.get(i).getId()==id)
               return true;
       }
       return false;
