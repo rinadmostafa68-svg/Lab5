@@ -3,6 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package lab5;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import lab5.HomePage;
 
 /**
  *
@@ -13,10 +16,37 @@ public class ViewStudents extends javax.swing.JFrame {
     /**
      * Creates new form ViewStudents
      */
+    AdminRole r = new AdminRole();
+
     public ViewStudents() {
         initComponents();
+        loadTable();
     }
 
+    public void loadTable() {
+        DefaultTableModel m = (DefaultTableModel) Table.getModel();
+        m.setRowCount(0); 
+
+        try {
+            ArrayList<Student> x = r.readFromFile();
+
+            for (Student s : x) {
+                m.addRow(new Object[]{
+                    s.getId(),
+                    s.getName(),
+                    s.getAge(),
+                    s.getGender(),
+                    s.getDepartment(),
+                    s.getGpa()
+                });
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error loading data: " + e.getMessage());
+        }
+    }
+}
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,21 +56,64 @@ public class ViewStudents extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Table = new javax.swing.JTable();
+        Back = new javax.swing.JButton();
+        scrollPane1 = new java.awt.ScrollPane();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        Table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Name", "ID", "Age", "Gender", "Departement", "GPA"
+            }
+        ));
+        jScrollPane1.setViewportView(Table);
+
+        Back.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        Back.setText("Back");
+        Back.setActionCommand("");
+        Back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(scrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Back)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(scrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Back)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
+        // TODO add your handling code here:
+        HomePage h = new HomePage();
+        h.setVisible(true);
+    }//GEN-LAST:event_BackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +151,9 @@ public class ViewStudents extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Back;
+    private javax.swing.JTable Table;
+    private javax.swing.JScrollPane jScrollPane1;
+    private java.awt.ScrollPane scrollPane1;
     // End of variables declaration//GEN-END:variables
-}
+
