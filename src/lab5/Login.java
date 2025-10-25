@@ -24,18 +24,7 @@ public class Login extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
 
-private void jButtonActionPerformed(java.awt.event.ActionEvent evt){
-    String username=textUsername.getText();
-    String password=new String(textPassword.getPassword());
-    if(username.equals("admin")&&password.equals("admin")){
-        HomePage h =new HomePage();
-        h.setVisible(true);
-        this.setVisible(false);
-    }
-    else{
-        JOptionPane.showMessageDialog(this, "Error");
-    }
-}    
+
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -149,7 +138,16 @@ private void jButtonActionPerformed(java.awt.event.ActionEvent evt){
     }//GEN-LAST:event_textUsernameActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+       String username=textUsername.getText();
+    String password=new String(textPassword.getPassword());
+    if(username.equals("admin")&&password.equals("admin")){
+        HomePage h =new HomePage();
+        h.setVisible(true);
+        this.setVisible(false);
+    }
+    else{
+        JOptionPane.showMessageDialog(this, "Error");
+    }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void textPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textPasswordActionPerformed
