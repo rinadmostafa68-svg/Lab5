@@ -6,9 +6,10 @@ package lab5;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
-
 /**
  *
  * @author msi
@@ -36,10 +37,22 @@ public abstract class DataBase {
             String Dep=tokens[4];
             double gpa=Double.parseDouble(tokens[5]);
             record.add(new Student(id,name,Age,gender,Dep,gpa));
+            
         } 
 
     }
-    public abstract void SaveToFile();
+    public void SaveToFile(){
+     try (FileWriter writer = new FileWriter(this.fileName, false)){
+            for (int i = 0; i < this.record.size(); i++){
+                writer.write(record.get(i)+"\n");
+            }
+            System.out.println("File overwritten successfully!");
+        }
+        catch (IOException e){
+            System.out.println("Error writing to file!");
+            e.printStackTrace();
+        }
+    }
     public abstract boolean contains();
     public abstract ArrayList<Student> getAllstudents();
     
