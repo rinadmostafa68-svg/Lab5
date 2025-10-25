@@ -6,63 +6,64 @@ package lab5;
 
 /**
  *
- * @author msi
+ * @author Zaid&Lama&joody
  */
-public class Student{
-    private int StudentID; 
-    private String Name;
-    private int Age;
-    private String Gender;
-    private String Department;
-    private  double gpa;      
+public class Student {
+    
+    private int id;
+    private String name;
+    private int age;
+    private String gender;
+    private string department;
+    private double gpa;
 
-    public Student(int StudentID, String Name, int Age, String Gender, String Department, double gpa) {
-        this.StudentID = StudentID;
-        this.Name = Name;
-        this.Age = Age;
-        this.Gender = Gender;
-        this.Department = Department;
+    public Student(int id, String name, int age, String gender, string department, double gpa) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.department = department;
         this.gpa = gpa;
     }
 
-    public int getStudentID() {
-        return StudentID;
+    public int getId() {
+        return id;
     }
 
-    public void setStudentID(int StudentID) {
-        this.StudentID = StudentID;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
-    public void setName(String Name) {
-        this.Name = Name;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getAge() {
-        return Age;
+        return age;
     }
 
-    public void setAge(int Age) {
-        this.Age = Age;
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public String getGender() {
-        return Gender;
+        return gender;
     }
 
-    public void setGender(String Gender) {
-        this.Gender = Gender;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
-    public String getDepartment() {
-        return Department;
+    public string getDepartment() {
+        return department;
     }
 
-    public void setDepartment(String Department) {
-        this.Department = Department;
+    public void setDepartment(string department) {
+        this.department = department;
     }
 
     public double getGpa() {
@@ -72,8 +73,12 @@ public class Student{
     public void setGpa(double gpa) {
         this.gpa = gpa;
     }
-    public String tostString()
-    {
-      return StudentID+","+Name+","+Age+","+Gender+","+Department+","+gpa;
-    }
 }
+@Override
+    public String toString() {
+return id + "," + name + "," + age + "," + gender + "," + department + "," + gpa;
+    }
+
+    
+    
+
