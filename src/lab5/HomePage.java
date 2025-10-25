@@ -140,13 +140,13 @@ public class HomePage extends javax.swing.JFrame {
     private void ViewStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewStudentActionPerformed
         // TODO add your handling code here:
         ViewStudents view = new ViewStudents();
-                view.setvisible(true);
+                view.setVisible(true);
     }//GEN-LAST:event_ViewStudentActionPerformed
 
     private void UpdateOrDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateOrDeleteActionPerformed
         // TODO add your handling code here:
-        UpdateOrDelete y = new DeletOrUpdate();
-        view.setvisible(true);
+        UpdateOrDelete y = new UpdateOrDelete();
+        y.setVisible(true);
     }//GEN-LAST:event_UpdateOrDeleteActionPerformed
 
     /**
