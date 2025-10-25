@@ -3,7 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package lab5;
-
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.util.List;
 /**
  *
  * @author RinadMostafa
@@ -15,8 +17,25 @@ public class Delete extends javax.swing.JPanel {
      */
     public Delete() {
         initComponents();
+        
     }
+    private void loadAllStudents() {
+    DefaultTableModel model = (DefaultTableModel) DeleteTable.getModel();
+    model.setRowCount(0); 
 
+    List<Student> students = StudentManager.getAllStudents();
+
+    for (Student s : students) {
+        model.addRow(new Object[]{
+            s.getId(), s.getName(), s.getAge(),
+            s.getGender(), s.getDepartment(), s.getGpa()
+        });
+    }
+}
+String[] columns = {"ID", "Name", "Age", "Gender", "Department", "GPA"};
+    DefaultTableModel model = new DefaultTableModel(columns, 0);
+    DeleteTable.setModel(model);
+    loadAllStudents();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,19 +45,93 @@ public class Delete extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        Delete = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        DeleteTable = new javax.swing.JTable();
+
+        jLabel1.setBackground(new java.awt.Color(204, 204, 255));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 153, 255));
+        jLabel1.setText("Delete Student");
+
+        Delete.setText("Delete");
+        Delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeleteActionPerformed(evt);
+            }
+        });
+
+        DeleteTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Name", "ID", "Age", "Gender", "Departement", "GPA"
+            }
+        ));
+        jScrollPane1.setViewportView(DeleteTable);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(138, 138, 138)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(153, 153, 153)
+                        .addComponent(Delete))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17)
+                .addComponent(Delete)
+                .addContainerGap(29, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteActionPerformed
+        // TODO add your handling code here:
+        int row = DeleteTable.getSelectedRow();
+
+    if (row == -1) {
+        JOptionPane.showMessageDialog(this, "Please select a student to delete.");
+        return;
+    }
+
+    int confirm = JOptionPane.showConfirmDialog( this,"Are you sure you want to delete this student?","cnfirm delete",JOptionPane.YES_NO_OPTION);
+
+    if (confirm == JOptionPane.YES_OPTION) {
+        int id = Integer.parseInt(DeleteTable.getValueAt(row, 0).toString());
+
+        boolean success = StudentManager.deleteStudent(id); 
+
+        if (success) {
+            JOptionPane.showMessageDialog(this, "Student deleted successfully!");
+            loadAllStudents(); 
+        } else {
+            JOptionPane.showMessageDialog(this, "Student not found.");
+        }
+    }
+    }//GEN-LAST:event_DeleteActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Delete;
+    private javax.swing.JTable DeleteTable;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
