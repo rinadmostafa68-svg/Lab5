@@ -75,7 +75,7 @@ public class ViewSearch extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Name", "ID", "Age", "Gender", "Departement", "GPA"
+                "ID", "Name", "Age", "Gender", "Departement", "GPA"
             }
         ));
         jScrollPane1.setViewportView(Table);
