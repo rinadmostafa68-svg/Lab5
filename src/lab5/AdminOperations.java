@@ -17,7 +17,9 @@ public abstract class AdminOperations extends DataBase{
    { 
        if(!contains(s.getStudentID())){
      record.add(s);
-     return true;}
+     SaveToFile();
+     return true;
+       }
      else return false;
    }
    public Student SearchStudent(int id)
@@ -34,7 +36,10 @@ public abstract class AdminOperations extends DataBase{
       for(int i=0;i<record.size();i++){
           if(record.get(i).getId()==id){
               record.remove(i);
-      return true;}}
+              SaveToFile();
+      return true;
+          }
+      }
       return false;
    }
    public boolean UpdateStudent(int id, String name, int Age,String Gender, String Dep,double gpa)
@@ -46,6 +51,7 @@ public abstract class AdminOperations extends DataBase{
        s.setGender(Gender);
        s.setDepartment(Dep);
        s.setGpa(gpa);
+       SaveToFile();
        return true;
        }
        return false;
