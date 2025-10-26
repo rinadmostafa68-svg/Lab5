@@ -82,7 +82,9 @@ public class AddStudent extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(51, 51, 51));
         jLabel7.setText("GPA or Grade:");
 
+        Save.setBackground(new java.awt.Color(102, 153, 255));
         Save.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        Save.setForeground(new java.awt.Color(255, 255, 255));
         Save.setText("Save");
         Save.setActionCommand("");
         Save.addActionListener(new java.awt.event.ActionListener() {
@@ -104,7 +106,9 @@ public class AddStudent extends javax.swing.JFrame {
             }
         });
 
+        Back.setBackground(new java.awt.Color(102, 153, 255));
         Back.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        Back.setForeground(new java.awt.Color(255, 255, 255));
         Back.setText("Back");
         Back.setActionCommand("");
         Back.addActionListener(new java.awt.event.ActionListener() {

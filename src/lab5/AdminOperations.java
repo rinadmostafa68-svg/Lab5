@@ -28,7 +28,7 @@ public class AdminOperations extends DataBase {
 
     public Student SearchStudent(int id) {
         for (int i = 0; i < record.size(); i++) {
-            if (contains(id)) {
+            if (record.get(i).getId()==id) {
                 return record.get(i);
             }
         }
@@ -37,7 +37,7 @@ public class AdminOperations extends DataBase {
 
     public boolean DeleteStudent(int id) {
         for (int i = 0; i < record.size(); i++) {
-            if (contains(id)) {
+            if (record.get(i).getId()==id) {
                 record.remove(i);
                 SaveToFile();
                 return true;
