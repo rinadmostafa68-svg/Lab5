@@ -15,6 +15,7 @@ public class AdminOperations extends DataBase {
     public AdminOperations(String fileName) throws FileNotFoundException {
         super(fileName);
     }
+<<<<<<< HEAD
 
     public boolean AddStudent(Student s) {
         if (!contains(s.getId())) {
@@ -61,4 +62,51 @@ public class AdminOperations extends DataBase {
 
     }
 
+=======
+   public boolean  AddStudent(Student s)
+   { 
+       if(!contains(s.getStudentID())){
+     record.add(s);
+     SaveToFile();
+     return true;
+       }
+     else return false;
+   }
+   public Student SearchStudent(int id)
+   {
+     for(int i=0;i<record.size();i++)
+     {
+         if(record.get(i).getId()==id)
+             return record.get(i);
+     }
+     return null;
+   }
+   public boolean DeleteStudent(int id)
+   {
+      for(int i=0;i<record.size();i++){
+          if(record.get(i).getId()==id){
+              record.remove(i);
+              SaveToFile();
+      return true;
+          }
+      }
+      return false;
+   }
+   public boolean UpdateStudent(int id, String name, int Age,String Gender, String Dep,double gpa)
+   {
+       if(contains( id)){
+       Student s= SearchStudent(id);
+       s.setName(name);
+       s.setAge(Age);
+       s.setGender(Gender);
+       s.setDepartment(Dep);
+       s.setGpa(gpa);
+       SaveToFile();
+       return true;
+       }
+       return false;
+       
+   }
+   
+>>>>>>> 5eefce38e6986c34b56a4294c9d6e03dd71ed49f
 }
